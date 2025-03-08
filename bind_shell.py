@@ -62,8 +62,10 @@ def run_cmd(command: str) -> str:
     return result.stdout + result.stderr
 
 def get_user():
-    user = subprocess.run('whoami',shell=True,stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    return user.stdout.decode().strip()
+    if os.name == 'nt':
+        return os.getlogin()
+    user = subprocess.run('whoami', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    return user.stdout.decode(errors='ignore').strip()
 
 def get_hostname():
     hostname = subprocess.run('hostname',shell=True,stdout=subprocess.PIPE, stderr=subprocess.PIPE)
