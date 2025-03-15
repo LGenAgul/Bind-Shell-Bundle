@@ -3,7 +3,8 @@ Collection of Bind Shells in different programming languages
 ## Current list includes:
 1) python
 2) C
-3) (Theres more to come...)
+3) bash
+4) (Theres more to come...)
 
 #bind_shell.py
 Works both on linux and Windows
